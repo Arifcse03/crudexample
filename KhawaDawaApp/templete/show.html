@@ -12,17 +12,8 @@
     />
   </head>
   <body>
-   
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-        <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-
-
-
+    
+    
     <nav class="navbar navbar-dark bg-dark">
       <h1 class="text-white bg-dark">M & J Khawa Dawa Management System</h1>
     </nav>
@@ -52,7 +43,7 @@
               <a href="/api/delete/{{ employee.id }}">Delete</a>
             </td>
           </tr>
-        
+          {% endfor %}
         </tbody>
       </table>
     </div>
