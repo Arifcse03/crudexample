@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect  
 from KhawaDawaApp.forms import KhawadawaForm  
-from KhawaDawaApp.models import Khawadawa 
+from KhawaDawaApp.models import Khawadawa
+from django.contrib import messages 
 # Create your views here.  
 def emp(request):  
     if request.method == "POST":  
         form = KhawadawaForm(request.POST)  
         if form.is_valid():  
             try:  
-                form.save()  
+                form.save()
+                messages.success(request, 'Form submission successful')  
                 return redirect('/api/show')  
             except:  
                 pass  

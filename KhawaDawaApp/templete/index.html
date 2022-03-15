@@ -12,6 +12,9 @@
     />
   </head>
   <body>
+    <div class="p-3 mb-2 bg-gradient-light text-dark">
+      <div class="mx-auto" style="width: 800px;">
+        <div class="card text-center">
     <form method="POST" class="post-form" action="/api/emp">
       {% csrf_token %}
       <div class="container">
@@ -23,7 +26,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label">Khawa Id:</label>
+          <label class="col-sm-2 col-form-label">Enployee Id:</label>
           <div class="col-sm-4">{{ form.id }}</div>
         </div>
         <div class="form-group row">
@@ -35,10 +38,10 @@
           <div class="col-sm-4">{{ form.person_will_feed }}</div>
         </div>
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label">Date of Program</label>
+          <label class="col-sm-2 col-form-label">Date of Program:</label>
          
           <div  class="col-sm-4">{{ form.program_date }}</div>
-        </div>
+        </div> 
         
         <div class="form-group row">
           <label class="col-sm-1 col-form-label"></label>
@@ -48,6 +51,13 @@
         </div>
       </div>
     </form>
+    
+    {% endfor %}
+</ul>
+{% endif %}
+  </div>
+</div>
+</div>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
