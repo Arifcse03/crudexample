@@ -58,7 +58,6 @@ def update(request, id):
     try:
         print("inside try")
         khawa = Khawadawa.objects.get(id = id)
-        print(khawa)
 
     except Khawadawa.DoesNotExist:
         print("inside except")
