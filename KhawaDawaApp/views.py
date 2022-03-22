@@ -13,12 +13,18 @@ def emp(request):
         if form.is_valid():
             try:
                 form.save()
+                messages.success(request,"Successfully Added ")
                 # messages.success(request, 'Form submission successful')
                 return redirect('/api/show')
             except:
                 pass
+        else:
+            messages.error(request," Please insert valid sata. Id must be unique")
+            return render(request, 'index.html', {'form': form})
+
     else:
         form = KhawadawaForm()
+        # messages.error(request,"Something wrong ")
     return render(request, 'index.html', {'form': form})
 
 
@@ -51,6 +57,7 @@ def edit(request, id):
 def destroy(request, id):
     employee = Khawadawa .objects.get(id=id)
     employee.delete()
+    messages.success(request,"Successfully deleted ")
     return redirect('/api/show')
 
 def update(request, id):
@@ -65,6 +72,7 @@ def update(request, id):
     khawa_form = KhawadawaForm(request.POST or None, instance = khawa)
     if khawa_form.is_valid():
        khawa_form.save()
+       messages.success(request,"Successfully updated the Data ")
        print("inside  after save")
        return redirect('/api/show')
     return render(request, 'edit.html', {'KhawaDawa': khawa_form})
